@@ -16,6 +16,9 @@ public class MainPage extends BasePage{
     @FindBy(xpath = "//p[text()='Consent']/ancestor::button")
     private WebElement consentButton;
 
+    @FindBy(xpath = "//a[@href='/contact_us']" )
+    private WebElement contactButton;
+
     public void clickConsentButton(){
         elementHelper.clickElement(consentButton);
     }
@@ -23,5 +26,11 @@ public class MainPage extends BasePage{
     public void interactWithSignUpLogInButton(){
         elementHelper.clickElement(signUpLogInButton);
         LoggerUtility.infoLog("The user clicks on SignUp/Login button");
+    }
+
+    public void interactWithContactButton(){
+        elementHelper.clickElement(contactButton);
+        LoggerUtility.infoLog("The user clicks on Contact Us button");
+
     }
 }
