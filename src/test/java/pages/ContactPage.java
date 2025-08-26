@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.io.File;
+
 public class ContactPage extends BasePage{
     public ContactPage(WebDriver driver) {
         super(driver);
@@ -22,7 +24,10 @@ public class ContactPage extends BasePage{
     @FindBy(id = "message")
     private WebElement contactMessage;
 
-    public void fillContactForm(String name, String email, String subject, String message){
+    @FindBy(name = "upload_file")
+    private WebElement contactUploadFile;
+
+    public void fillContactForm(String name, String email, String subject, String message, String uploadValue){
 
     elementHelper.fillElement(contactName, name);
     LoggerUtility.infoLog("The user fills the Name field");
@@ -32,6 +37,9 @@ public class ContactPage extends BasePage{
     LoggerUtility.infoLog("The user fills the Subject field");
     elementHelper.fillElement(contactMessage, message);
     LoggerUtility.infoLog("The user fills the Message field");
+    File file = new File(uploadValue);
+    elementHelper.fillElement(contactUploadFile, file.getAbsolutePath());
+
 
     }
 
