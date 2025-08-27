@@ -10,7 +10,7 @@ public class RegisterUserTEST extends SharedData {
     @Test
     public void thestMethod(){
         String name="John";
-        String email="john.doe4@email.com";
+        String email="john.doe5@email.com";
         String titleValue="Mr";
         String passwordValue="password123!";
         String daysValue="5";

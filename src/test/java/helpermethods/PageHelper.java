@@ -12,7 +12,7 @@ public class PageHelper {
 
     public void scrollPage(int x, int y) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(" + x + "," + y + ")", "");
+        js.executeScript("window.scrollBy(arguments[0], arguments[1]);", x, y);
     }
 
 }

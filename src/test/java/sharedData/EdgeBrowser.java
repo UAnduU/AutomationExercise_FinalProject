@@ -29,7 +29,7 @@ public class EdgeBrowser implements Browser{
     public void configBrowser() {
         boolean cicd = Boolean.parseBoolean(System.getProperty("cicd"));
         edgeOptions = new EdgeOptions();
-        edgeOptions.addArguments("window-size=2560,1440");
+        edgeOptions.addArguments("window-size=1920,1080");
         edgeOptions.addArguments("--disable-gpu");
         edgeOptions.addArguments("--disable-infobars");
         edgeOptions.addArguments("--disable-extensions");

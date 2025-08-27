@@ -26,11 +26,6 @@ public class ElementHelper {
         element.click();
     }
 
-    public void printTextElement(WebElement element) {
-        waitVisibleElement(element);
-        System.out.println(element.getText());
-    }
-
     public void fillElement(WebElement element, String value) {
         waitVisibleElement(element);
         element.sendKeys(value);
@@ -41,29 +36,9 @@ public class ElementHelper {
         element.sendKeys(value);
     }
 
-    public void validateListSize(List<WebElement> elementsList, int expectedSize) {
-        waitVisibleList(elementsList);
-        Assert.assertEquals(elementsList.size(), expectedSize, "Actual elements list size: " + elementsList.size() + " is different than: " + expectedSize);
-    }
-
-    public void validateElementContainsText(WebElement element, String expectedText) {
-        waitVisibleElement(element);
-        Assert.assertTrue(element.getText().contains(expectedText), "Actual element text: " + element.getText() + " is different than" + expectedText);
-    }
-
-    public void validateElementEqualsText(WebElement element, String expectedText) {
-        waitVisibleElement(element);
-        Assert.assertEquals(element.getText(), expectedText, "Actual element text: " + element.getText() + " is different than" + expectedText);
-    }
-
     public void clearElement(WebElement element) {
         waitVisibleElement(element);
         element.clear();
-    }
-
-    public void clearFillElement(WebElement element, String value) {
-        clearElement(element);
-        fillElement(element, value);
     }
 
     public void fillPressElement(WebElement element, String value, Keys keyValue) {
@@ -74,10 +49,5 @@ public class ElementHelper {
     public void waitVisibleElement(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOf(element));
-    }
-
-    public void waitVisibleList(List<WebElement> elementsList) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        wait.until(ExpectedConditions.visibilityOfAllElements(elementsList));
     }
 }

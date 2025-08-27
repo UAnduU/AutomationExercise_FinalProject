@@ -42,10 +42,10 @@ public class SharedData {
             LoggerUtility.errorLog(result.getThrowable().getMessage());
         }
 
-        driver.quit();
-
-        LoggerUtility.infoLog("The browser "+browser+" was closed with success");
-
-        LoggerUtility.finishTest(this.getClass().getSimpleName());
+//        driver.quit();
+//
+//        LoggerUtility.infoLog("The browser "+browser+" was closed with success");
+//
+//        LoggerUtility.finishTest(this.getClass().getSimpleName());
     }
 }

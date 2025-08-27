@@ -133,7 +133,7 @@ public class SignUpPage extends BasePage{
         LoggerUtility.infoLog("The user clicks on the Country dropdown");
         elementHelper.fillPressElement(countryElement,countryValue, Keys.ENTER);
         LoggerUtility.infoLog("The user enters the Country value");
-        pageHelper.scrollPage(0,400);
+        pageHelper.scrollPage(0,200);
         elementHelper.fillElement(stateElement,stateValue);
         LoggerUtility.infoLog("The user fills the State field");
         elementHelper.fillElement(cityElement,cityValue);
