@@ -1,6 +1,7 @@
 package pages;
 
 import loggerUtility.LoggerUtility;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +31,11 @@ public class ContactPage extends BasePage{
     @FindBy(name = "upload_file")
     private WebElement contactUploadFile;
 
+    @FindBy(name = "submit")
+    private WebElement submitButton;
 
+    @FindBy(xpath = "//a[@class='btn btn-success' and @href='/']")
+    private WebElement okButton;
 
     public void fillContactForm(String name, String email, String subject, String message, String uploadValue) throws MalformedURLException {
 
@@ -52,6 +57,11 @@ public class ContactPage extends BasePage{
         File file = new File(localFilePath);
         elementHelper.fillElement(contactUploadFile, file.getPath());
         LoggerUtility.infoLog("The user uploads the file");
+        elementHelper.clickElement(submitButton);
+        LoggerUtility.infoLog("The user clicks the Submit button");
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+        LoggerUtility.infoLog("The user accepts the alert");
     }
 
 }
